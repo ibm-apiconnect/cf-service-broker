@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 120px;
+}
+
+.App-header {
+  background: url(./images/background.jpg) no-repeat center center fixed;
+  height: 200px;
+  padding: 20px;
+  color: white;
+}
+
+.globalNav {
+  background-color: grey;
+}
+
+.button {
+  width: 100%;
+}

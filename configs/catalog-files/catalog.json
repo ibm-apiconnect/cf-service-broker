@@ -1,0 +1,35 @@
+{
+    "services": [{
+        "id": "6460d7a9-a844-4386-a26c-154c8910f7a8",
+        "name": "api-connect-route-services",
+        "description": "CF broker designed to bind applications to API Connect powered route services",
+        "tags": [
+            "apiconnect",
+            "routeservices"
+        ],
+        "metadata": {
+            "displayName": "API Connect Route Services",
+            "imageUrl": "https://d33na3ni6eqf5j.cloudfront.net/app_resources/18492/thumbs_112/img9069612145282015279.png",
+            "longDescription": "CF broker designed to bind applications to API Connect powered route services",
+            "providerDisplayName": "API Connect",
+            "documentationUrl": "",
+            "supportUrl": ""
+        },
+        "dashboard_client": {
+            "id": "p-mysql-client",
+            "secret": "p-mysql-secret",
+            "redirect_uri": "http://p-mysql.example.com/auth/create"
+        },
+        "plans": [{
+            "id": "1429f80c-856c-4089-82df-65e264257d7b",
+            "name": "Standard",
+            "description": "Standard plan to handle route service binding",
+            "metadata": {
+                "bullets": [
+                    ""
+                ],
+                "displayName": "Standard"
+            }
+        }]
+    }]
+}
