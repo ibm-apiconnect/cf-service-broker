@@ -1,0 +1,11 @@
+---
+PORT: 3000
+logger:
+  level: trace
+apimanager:
+  gatewayServer: 'https://apimdev1127.hursley.ibm.com'
+  managementServer: 'https://apimdev1125.hursley.ibm.com'
+cf:
+  server: 'https://api.ng.bluemix.net'
+broker:
+  dashboardUrl: 'https://apimdev1125.hursley.ibm.com:3000'
