@@ -64,7 +64,7 @@ Once registered, users within the CF environment will have the ability to provis
 Prior to binding an application route, you will need to perform applicable setup steps within API Connect. You will need the following items created and accessible from a single user:
 * A Provider Organization
 * A Catalog
-* An API with the applicable DataPower policy used within the API's assembly. (More information on what needs to be done for this step can be found [here](#NEEDLINK)
+* An API with the applicable DataPower policy used within the API's assembly. (More information on what needs to be done for this step can be found [here](https://github.com/ibm-apiconnect/cf-service-broker/blob/master/datapower/README.md)
 
 Once ready, there are two different ways to bind your application route to an API:
 
