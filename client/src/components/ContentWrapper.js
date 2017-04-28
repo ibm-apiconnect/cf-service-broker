@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
+import FaCircleONotch from 'react-icons/lib/fa/circle-o-notch';
+import FaCheckSquareO from 'react-icons/lib/fa/check-square-o';
 import base64 from 'base-64';
 
 class ContentWrapper extends Component {
 
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = {
+      loading: {
+
+      }
+    };
   }
 
   handleChange(field) {
@@ -33,7 +39,16 @@ class ContentWrapper extends Component {
     };
   }
 
+  setLoading(field, isLoading) {
+    this.setState({
+      loading: Object.assign({}, this.state.loading, {
+        [field]: isLoading,
+      }),
+    });
+  }
+
   fetchApicOrgs(config) {
+    this.setLoading('apicOrgs', true);
     console.log('fetching APIC orgs');
     if (!config) {
       config = this.state.mgmtConfig;
@@ -51,6 +66,7 @@ class ContentWrapper extends Component {
           this.setState({
             providerOrgs: orgs,
           });
+          this.setLoading('apicOrgs', false);
         });
     } else {
       console.log('missing value in fetchApicOrgs...skipping');
@@ -58,6 +74,7 @@ class ContentWrapper extends Component {
   }
 
   fetchApicCatalogs(orgId, config) {
+    this.setLoading('apicCatalogs', true);
     console.log(`fetching APIC catalogs for org: ${orgId}`);
     if (!config) {
       config = this.state.mgmtConfig;
@@ -75,6 +92,7 @@ class ContentWrapper extends Component {
           this.setState({
             catalogs: catalogs,
           });
+          this.setLoading('apicCatalogs', false);
         });
     } else {
       console.log('missing value in fetchApicCatalogs...skipping');
@@ -82,6 +100,7 @@ class ContentWrapper extends Component {
   }
 
   fetchApicApis(orgId, catalogId, config) {
+    this.setLoading('apicApis', true);
     console.log(`fetching APIC apis for org: ${orgId}; catalog: ${catalogId}`);
     if (!config) {
       config = this.state.mgmtConfig;
@@ -105,6 +124,7 @@ class ContentWrapper extends Component {
           this.setState({
             apis: apis,
           });
+          this.setLoading('apicApis', false);
         });
     } else {
       console.log('missing value in fetchApicApis...skipping');
@@ -112,6 +132,7 @@ class ContentWrapper extends Component {
   }
 
   fetchCfApps(config) {
+    this.setLoading('cfApps', true);
     console.log('fetching CF apps');
     if (!config) {
       config = this.state.cfConfig;
@@ -128,6 +149,7 @@ class ContentWrapper extends Component {
           this.setState({
             cfApps: apps,
           });
+          this.setLoading('cfApps', false);
         });
     } else {
       console.log('missing value in fetchCfApps...skipping');
@@ -135,6 +157,7 @@ class ContentWrapper extends Component {
   }
 
   fetchCfRoutes(appId, config) {
+    this.setLoading('cfRoutes', true);
     console.log(`fetching CF routes for app: ${appId}`);
     if (!config) {
       config = this.state.cfConfig;
@@ -151,6 +174,7 @@ class ContentWrapper extends Component {
           this.setState({
             cfRoutes: routes,
           });
+          this.setLoading('cfRoutes', false);
         });
       } else {
         console.log('missing value in fetchCfRoutes...skipping');
@@ -158,6 +182,7 @@ class ContentWrapper extends Component {
   }
 
   handleBind() {
+    this.setLoading('bind', true);
     let routeId = this.state.selectedCfRoute;
     let targetUrl = this.state.selectedApi;
     console.log(`in handleBind. routeId: ${routeId}; targetUrl: ${targetUrl}`);
@@ -174,8 +199,10 @@ class ContentWrapper extends Component {
     })
       .then(result => result.json())
       .then(result => {
-        console.log('got result');
-        console.log(result);
+        this.setLoading('bind', false);
+        this.setState({
+          bindComplete: true,
+        });
       });
   }
 
@@ -216,6 +243,11 @@ class ContentWrapper extends Component {
                             {this.state.cfApps && this.state.cfApps.map(app => <option key={app.id} value={app.id}>{app.name}</option>)}
                           </FormControl>
                           </Col>
+                          { this.state.loading.cfApps &&
+                            <Col md={1}>
+                              <FaCircleONotch className='spinnerIcon'/>
+                            </Col>
+                          }
                           <Col md={4}>
                             <Button bsStyle="primary" className='button hidden' onClick={this.fetchCfApps.bind(this)}>Refresh</Button>
                           </Col>
@@ -237,6 +269,11 @@ class ContentWrapper extends Component {
                               {this.state.cfRoutes && this.state.cfRoutes.map(route => <option key={route.id} value={route.id}>{route.name}</option>)}
                             </FormControl>
                           </Col>
+                          { this.state.loading.cfRoutes &&
+                            <Col md={1}>
+                              <FaCircleONotch className='spinnerIcon'/>
+                            </Col>
+                          }
                           <Col md={4}>
                             <Button bsStyle="primary" className='button hidden' onClick={this.fetchCfRoutes.bind(this)}>Refresh</Button>
                           </Col>
@@ -272,6 +309,11 @@ class ContentWrapper extends Component {
                               {this.state.providerOrgs && this.state.providerOrgs.map(org => <option key={org.id} value={org.id}>{org.name}</option>)}
                             </FormControl>
                           </Col>
+                          { this.state.loading.apicOrgs &&
+                            <Col md={1}>
+                              <FaCircleONotch className='spinnerIcon'/>
+                            </Col>
+                          }
                           <Col md={4}>
                             <Button bsStyle="primary" className='button hidden' onClick={this.fetchApicOrgs.bind(this)}>Refresh</Button>
                           </Col>
@@ -293,6 +335,11 @@ class ContentWrapper extends Component {
                               {this.state.catalogs && this.state.catalogs.map(catalog => <option key={catalog.id} value={catalog.id}>{catalog.name}</option>)}
                             </FormControl>
                           </Col>
+                          { this.state.loading.apicCatalogs &&
+                            <Col md={1}>
+                              <FaCircleONotch className='spinnerIcon'/>
+                            </Col>
+                          }
                           <Col md={4}>
                             <Button bsStyle="primary" className='button hidden' onClick={this.fetchApicCatalogs.bind(this)}>Refresh</Button>
                           </Col>
@@ -314,6 +361,11 @@ class ContentWrapper extends Component {
                               {this.state.apis && this.state.apis.map(api => <option key={api.id} value={api.targetUrl}>{api.apiName}</option>)}
                             </FormControl>
                           </Col>
+                          { this.state.loading.apicApis &&
+                            <Col md={1}>
+                              <FaCircleONotch className='spinnerIcon'/>
+                            </Col>
+                          }
                           <Col md={4}>
                             <Button bsStyle="primary" className='button hidden' onClick={this.fetchApicApis.bind(this)}>Refresh</Button>
                           </Col>
@@ -330,6 +382,16 @@ class ContentWrapper extends Component {
                 <Col md={2} mdOffset={5}>
                   <Button bsStyle="primary" className='button' disabled={!this.state.selectedProviderOrg || !this.state.selectedCatalog || !this.state.selectedApi || !this.state.selectedCfApp || !this.state.selectedCfRoute} onClick={this.handleBind.bind(this)}>Bind!</Button>
                 </Col>
+                { this.state.loading.bind &&
+                  <Col md={1}>
+                    <FaCircleONotch className='spinnerIcon'/>
+                  </Col>
+                }
+                { this.state.bindComplete &&
+                  <Col md={1}>
+                    <FaCheckSquareO className='completedCheck'/>
+                  </Col>
+                }
               </Row>
             }
           </form>
