@@ -3,6 +3,7 @@
 const express = require('express');
 
 const mgmtApis = require('../lib/mgmtApis');
+const logger = require('../utils/logging').getLogger('routes:mgmtApis');
 
 const router = express.Router();
 
@@ -16,6 +17,7 @@ router.get('/orgs', (req, res) => {
   mgmtApis.getOrgs(managementServer, managementAuth)
     .then(orgs => res.send(orgs))
     .catch(err => {
+      logger.error(err);
       res.status(err.statusCode).send(err.error || err);
     });
 });
@@ -26,6 +28,7 @@ router.get('/orgs/:orgId/catalogs', (req, res) => {
   mgmtApis.getCatalogs(req.params.orgId, managementServer, managementAuth)
     .then(catalogs => res.send(catalogs))
     .catch(err => {
+      logger.error(err);
       res.status(err.statusCode).send(err.error || err);
     });
 });
@@ -36,6 +39,7 @@ router.get('/orgs/:orgId/catalogs/:catalogId/apis', (req, res) => {
   mgmtApis.getApis(req.params.orgId, req.params.catalogId, managementServer, managementAuth)
     .then(apis => res.send(apis))
     .catch(err => {
+      logger.error(err);
       res.status(err.statusCode).send(err.error || err);
     });
 });

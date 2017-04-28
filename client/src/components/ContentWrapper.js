@@ -168,9 +168,9 @@ class ContentWrapper extends Component {
         authorization: this.state.cfConfig.token,
         'content-type': 'application/json',
       },
-      body: {
-        targetUrl,
-      }
+      body: JSON.stringify({
+        targetUrl: targetUrl,
+      }),
     })
       .then(result => result.json())
       .then(result => {

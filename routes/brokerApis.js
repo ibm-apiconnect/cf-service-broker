@@ -20,7 +20,7 @@ router.put('/service_instances/:id', (req, res) => {
 });
 
 router.delete('/service_instances/:id', (req, res) => {
-  res.status(204).send(cfApis.unbind(req.params.id, req.params.appId));
+  res.status(200).send(cfApis.deprovision(req.params.id));
 });
 
 router.put('/service_instances/:id/service_bindings/:appId', (req, res) => {
@@ -34,7 +34,7 @@ router.put('/service_instances/:id/service_bindings/:appId', (req, res) => {
 });
 
 router.delete('/service_instances/:id/service_bindings/:appId', (req, res) => {
-  res.status(204).send(cfApis.unbind(req.params.id, req.params.appId));
+  res.status(200).send(cfApis.unbind(req.params.id, req.params.appId));
 });
 
 module.exports = router;

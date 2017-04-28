@@ -2,6 +2,8 @@
     "services": [{
         "id": "6460d7a9-a844-4386-a26c-154c8910f7a8",
         "name": "api-connect-route-services",
+        "requires": ["route_forwarding"],
+        "bindable": true,
         "description": "CF broker designed to bind applications to API Connect powered route services",
         "tags": [
             "apiconnect",
