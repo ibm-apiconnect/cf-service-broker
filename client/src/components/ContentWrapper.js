@@ -116,8 +116,10 @@ class ContentWrapper extends Component {
         .then(result => result.json())
         .then(apis => {
           apis = apis.map(api => {
-            if(api.apiEndpoints.length){
+            if(api.apiEndpoints && api.apiEndpoints.length){
               api.targetUrl = api.apiEndpoints[0].endpointUrl;
+            } else {
+              api.targetUrl = api.apiEndpoint;
             }
             return api;
           });

@@ -40,7 +40,7 @@ router.post('/routes/:routeId/bind', (req, res) => {
     .then(response => res.send(response))
     .catch(err => {
       logger.error(err);
-      res.status(err.statusCode).send(err.error || error.message || err);
+      res.status(err.statusCode).send(err.error || err.message || err);
     });
 });
 
