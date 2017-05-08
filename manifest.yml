@@ -1,0 +1,7 @@
+---
+applications:
+- name: api-connect-route-services
+  disk_quota: 1024M
+  memory: 256M
+  instances: 1
+
