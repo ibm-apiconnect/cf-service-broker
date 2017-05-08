@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
+import _url from 'url';
 import FaCircleONotch from 'react-icons/lib/fa/circle-o-notch';
 import FaCheckSquareO from 'react-icons/lib/fa/check-square-o';
 import base64 from 'base-64';
@@ -19,6 +20,10 @@ class ContentWrapper extends Component {
     return evt => {
 
       let value = evt.target.value;
+
+      if (field === 'gatewayOverridePort' && isNaN(value)) {
+        value = this.state.gatewayOverridePort || '';
+      }
 
       this.setState({
         [field]: value,
@@ -187,6 +192,13 @@ class ContentWrapper extends Component {
     this.setLoading('bind', true);
     let routeId = this.state.selectedCfRoute;
     let targetUrl = this.state.selectedApi;
+    let gwPortOverride = this.state.gatewayOverridePort;
+    if (gwPortOverride) {
+      targetUrl = _url.parse(targetUrl);
+      targetUrl.port = gwPortOverride;
+      delete targetUrl.host;
+      targetUrl = _url.format(targetUrl);
+    }
     console.log(`in handleBind. routeId: ${routeId}; targetUrl: ${targetUrl}`);
     fetch(`/cf/routes/${routeId}/bind`, {
       method: 'post',
@@ -370,6 +382,21 @@ class ContentWrapper extends Component {
                           }
                           <Col md={4}>
                             <Button bsStyle="primary" className='button hidden' onClick={this.fetchApicApis.bind(this)}>Refresh</Button>
+                          </Col>
+                        </Row>
+                      </FormGroup>
+                    </Row>
+
+                    <Row>
+                      <FormGroup controlId="mgmtArtifacts-gwPortOverride">
+                        <Row>
+                          <Col md={8}>
+                            <ControlLabel>Gateway Port</ControlLabel>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col md={8}>
+                            <FormControl type="text" disabled={!this.state.selectedProviderOrg || !this.state.selectedCatalog || !this.state.selectedApi} value={this.state.gatewayOverridePort} placeholder="Enter a gateway port to override (defaults to 443)" onChange={this.handleChange('gatewayOverridePort').bind(this)} />
                           </Col>
                         </Row>
                       </FormGroup>
