@@ -201,7 +201,7 @@ class ContentWrapper extends Component {
     }
     console.log(`in handleBind. routeId: ${routeId}; targetUrl: ${targetUrl}`);
     fetch(`/cf/routes/${routeId}/bind`, {
-      method: 'post',
+      method: 'POST',
       headers: {
         server: this.state.cfConfig.server,
         authorization: this.state.cfConfig.token,
