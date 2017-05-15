@@ -1,0 +1,34 @@
+{
+  "name": "cf-service-broker",
+  "version": "1.0.0",
+  "description": "API Connect DataPower CF Route Services",
+  "keywords": [
+    "datapower",
+    "apiconnect",
+    "apic",
+    "ibm",
+    "api",
+    "management",
+    "cf"
+  ],
+  "author": "IBM API Connect",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build"
+  },
+  "license": "Apache 2.0",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "devDependencies": {
+    "bluebird": "^3.5.0",
+    "chai": "^3.5.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-zip": "^4.0.0",
+    "mocha": "^3.4.1",
+    "require-dir": "^0.3.1"
+  }
+}

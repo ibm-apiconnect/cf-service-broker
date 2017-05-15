@@ -1,0 +1,1143 @@
+<datapower-configuration version="3"><export-details><description>Exported Configuration</description><user>admin</user><domain>cf-integration</domain><comment/><product-id>5725</product-id><product>IDG</product><display-product>IDG</display-product><model>IBM DataPower Gateway</model><display-model>IBM DataPower Gateway</display-model><device-name>169.54.149.152:9090</device-name><serial-number>0000000</serial-number><firmware-version>IDG.7.5.2.6</firmware-version><display-firmware-version>IDG.7.5.2.6</display-firmware-version><firmware-build>286852</firmware-build><firmware-timestamp>2017/04/21 10:45:02</firmware-timestamp><current-date>2017-05-15</current-date><current-time>14:53:47 EDT</current-time><reset-date>2017-05-15</reset-date><reset-time>03:47:57 EDT</reset-time><login-message/><custom-ui-file/></export-details><interface-data><interface name="eth0" type="Ethernet" vers="ipv4" ip-addr="169.54.149.152"/></interface-data><configuration domain="cf-integration"><URLMap name="default-attempt-stream-all" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<URLMapRule>
+<Pattern>*</Pattern></URLMapRule></URLMap><CompileOptionsPolicy name="default-attempt-stream" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<XSLTVersion>XSLT10</XSLTVersion>
+<Strict>off</Strict>
+<TryStream class="URLMap">default-attempt-stream-all</TryStream>
+<StackSize>524288</StackSize>
+<WSIValidation>ignore</WSIValidation>
+<WSDLValidateBody>strict</WSDLValidateBody>
+<WSDLValidateHeaders>lax</WSDLValidateHeaders>
+<WSDLValidateFaults>strict</WSDLValidateFaults>
+<WSDLWrappedFaults>off</WSDLWrappedFaults>
+<WSDLStrictSOAPVersion>off</WSDLStrictSOAPVersion>
+<XACMLDebug>off</XACMLDebug></CompileOptionsPolicy><CryptoCertificate name="cf-gateway-cert" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Filename>local:///cf-gateway-sscert.pem</Filename>
+<PasswordAlias>off</PasswordAlias>
+<IgnoreExpiration>off</IgnoreExpiration></CryptoCertificate><CryptoKey name="cf-gateway-key" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Filename>local:///cf-gateway-privkey.pem</Filename>
+<PasswordAlias>off</PasswordAlias></CryptoKey><CryptoIdentCred name="cf-gateway-server-idcred" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Key class="CryptoKey">cf-gateway-key</Key>
+<Certificate class="CryptoCertificate">cf-gateway-cert</Certificate></CryptoIdentCred><SSLServerProfile name="cf-gateway-server" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Protocols>
+<SSLv3>off</SSLv3>
+<TLSv1d0>on</TLSv1d0>
+<TLSv1d1>on</TLSv1d1>
+<TLSv1d2>on</TLSv1d2></Protocols>
+<Ciphers>ECDHE_ECDSA_WITH_AES_256_GCM_SHA384</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_256_GCM_SHA384</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_AES_256_CBC_SHA384</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_256_CBC_SHA384</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_AES_256_CBC_SHA</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_256_CBC_SHA</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_256_GCM_SHA384</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_256_GCM_SHA384</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_256_CBC_SHA256</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_256_CBC_SHA256</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_256_CBC_SHA</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_256_CBC_SHA</Ciphers>
+<Ciphers>RSA_WITH_AES_256_GCM_SHA384</Ciphers>
+<Ciphers>RSA_WITH_AES_256_CBC_SHA256</Ciphers>
+<Ciphers>RSA_WITH_AES_256_CBC_SHA</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_128_CBC_SHA256</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_AES_128_CBC_SHA</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_128_CBC_SHA</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_128_GCM_SHA256</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_128_CBC_SHA256</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_128_CBC_SHA256</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_128_CBC_SHA</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_128_CBC_SHA</Ciphers>
+<Ciphers>RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+<Ciphers>RSA_WITH_AES_128_CBC_SHA256</Ciphers>
+<Ciphers>RSA_WITH_AES_128_CBC_SHA</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_3DES_EDE_CBC_SHA</Ciphers>
+<Ciphers>DHE_RSA_WITH_3DES_EDE_CBC_SHA</Ciphers>
+<Ciphers>DHE_DSS_WITH_3DES_EDE_CBC_SHA</Ciphers>
+<Ciphers>RSA_WITH_3DES_EDE_CBC_SHA</Ciphers>
+<Idcred class="CryptoIdentCred">cf-gateway-server-idcred</Idcred>
+<RequestClientAuth>off</RequestClientAuth>
+<RequireClientAuth>on</RequireClientAuth>
+<ValidateClientCert>on</ValidateClientCert>
+<SendClientAuthCAList>on</SendClientAuthCAList>
+<Caching>on</Caching>
+<CacheTimeout>300</CacheTimeout>
+<CacheSize>20</CacheSize>
+<SSLOptions>
+<max-duration>off</max-duration>
+<max-renegotiation>off</max-renegotiation></SSLOptions>
+<MaxSSLDuration>60</MaxSSLDuration>
+<NumberOfRenegotiationAllowed>0</NumberOfRenegotiationAllowed>
+<ProhibitResumeOnReneg>off</ProhibitResumeOnReneg>
+<Compression>off</Compression>
+<AllowLegacyRenegotiation>off</AllowLegacyRenegotiation>
+<PreferServerCiphers>on</PreferServerCiphers>
+<EllipticCurves>secp521r1</EllipticCurves>
+<EllipticCurves>secp384r1</EllipticCurves>
+<EllipticCurves>secp256k1</EllipticCurves>
+<EllipticCurves>secp256r1</EllipticCurves></SSLServerProfile><HTTPSSourceProtocolHandler name="https-7443" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<LocalAddress>0.0.0.0</LocalAddress>
+<LocalPort>7443</LocalPort>
+<HTTPVersion>HTTP/1.1</HTTPVersion>
+<AllowedFeatures>
+<HTTP-1.0>on</HTTP-1.0>
+<HTTP-1.1>on</HTTP-1.1>
+<HTTP-2.0>off</HTTP-2.0>
+<POST>on</POST>
+<GET>on</GET>
+<PUT>on</PUT>
+<HEAD>on</HEAD>
+<OPTIONS>on</OPTIONS>
+<TRACE>on</TRACE>
+<DELETE>on</DELETE>
+<CONNECT>off</CONNECT>
+<CustomMethods>on</CustomMethods>
+<QueryString>on</QueryString>
+<FragmentIdentifiers>on</FragmentIdentifiers>
+<DotDot>off</DotDot>
+<CmdExe>off</CmdExe></AllowedFeatures>
+<PersistentConnections>on</PersistentConnections>
+<MaxPersistentConnectionsReuse>0</MaxPersistentConnectionsReuse>
+<AllowCompression>off</AllowCompression>
+<AllowWebSocketUpgrade>on</AllowWebSocketUpgrade>
+<WebSocketIdleTimeout>0</WebSocketIdleTimeout>
+<MaxURLLen>16384</MaxURLLen>
+<MaxTotalHdrLen>128000</MaxTotalHdrLen>
+<MaxHdrCount>0</MaxHdrCount>
+<MaxNameHdrLen>0</MaxNameHdrLen>
+<MaxValueHdrLen>0</MaxValueHdrLen>
+<MaxQueryStringLen>0</MaxQueryStringLen>
+<CredentialCharset>protocol</CredentialCharset>
+<SSLServerConfigType>server</SSLServerConfigType>
+<SSLServer class="SSLServerProfile">cf-gateway-server</SSLServer>
+<HTTP2MaxStreams>100</HTTP2MaxStreams>
+<HTTP2MaxFrameSize>16384</HTTP2MaxFrameSize>
+<HTTP2StreamHeader>off</HTTP2StreamHeader></HTTPSSourceProtocolHandler><SSLClientProfile name="cf-gateway-client" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Protocols>
+<SSLv3>off</SSLv3>
+<TLSv1d0>on</TLSv1d0>
+<TLSv1d1>on</TLSv1d1>
+<TLSv1d2>on</TLSv1d2></Protocols>
+<Ciphers>ECDHE_ECDSA_WITH_AES_256_GCM_SHA384</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_256_GCM_SHA384</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_AES_256_CBC_SHA384</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_256_CBC_SHA384</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_AES_256_CBC_SHA</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_256_CBC_SHA</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_256_GCM_SHA384</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_256_GCM_SHA384</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_256_CBC_SHA256</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_256_CBC_SHA256</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_256_CBC_SHA</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_256_CBC_SHA</Ciphers>
+<Ciphers>RSA_WITH_AES_256_GCM_SHA384</Ciphers>
+<Ciphers>RSA_WITH_AES_256_CBC_SHA256</Ciphers>
+<Ciphers>RSA_WITH_AES_256_CBC_SHA</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_128_CBC_SHA256</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_AES_128_CBC_SHA</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_AES_128_CBC_SHA</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_128_GCM_SHA256</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_128_CBC_SHA256</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_128_CBC_SHA256</Ciphers>
+<Ciphers>DHE_RSA_WITH_AES_128_CBC_SHA</Ciphers>
+<Ciphers>DHE_DSS_WITH_AES_128_CBC_SHA</Ciphers>
+<Ciphers>RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+<Ciphers>RSA_WITH_AES_128_CBC_SHA256</Ciphers>
+<Ciphers>RSA_WITH_AES_128_CBC_SHA</Ciphers>
+<Ciphers>ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA</Ciphers>
+<Ciphers>ECDHE_RSA_WITH_3DES_EDE_CBC_SHA</Ciphers>
+<Ciphers>DHE_RSA_WITH_3DES_EDE_CBC_SHA</Ciphers>
+<Ciphers>DHE_DSS_WITH_3DES_EDE_CBC_SHA</Ciphers>
+<Ciphers>RSA_WITH_3DES_EDE_CBC_SHA</Ciphers>
+<Idcred class="CryptoIdentCred">cf-gateway-server-idcred</Idcred>
+<ValidateServerCert>off</ValidateServerCert>
+<Caching>on</Caching>
+<CacheTimeout>300</CacheTimeout>
+<CacheSize>100</CacheSize>
+<SSLClientFeatures>
+<use-sni>on</use-sni>
+<permit-insecure-servers>off</permit-insecure-servers>
+<compression>off</compression></SSLClientFeatures>
+<EllipticCurves>secp521r1</EllipticCurves>
+<EllipticCurves>secp384r1</EllipticCurves>
+<EllipticCurves>secp256k1</EllipticCurves>
+<EllipticCurves>secp256r1</EllipticCurves>
+<UseCustomSNIHostname>no</UseCustomSNIHostname></SSLClientProfile><HTTPUserAgent name="default-https" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<MaxRedirects>8</MaxRedirects>
+<Timeout>300</Timeout>
+<SSLPolicies>
+<RegExp>*</RegExp>
+<SSLProxyProfile/>
+<SSLClientConfigType>client</SSLClientConfigType>
+<SSLClient class="SSLClientProfile">cf-gateway-client</SSLClient></SSLPolicies></HTTPUserAgent><XMLManager name="default-https" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<CacheSize>256</CacheSize>
+<SHA1Caching>on</SHA1Caching>
+<StaticDocumentCalls>on</StaticDocumentCalls>
+<SearchResults>on</SearchResults>
+<SupportTxWarn>off</SupportTxWarn>
+<Memoization>on</Memoization>
+<ParserLimitsBytesScanned>4194304</ParserLimitsBytesScanned>
+<ParserLimitsElementDepth>512</ParserLimitsElementDepth>
+<ParserLimitsAttributeCount>128</ParserLimitsAttributeCount>
+<ParserLimitsMaxNodeSize>33554432</ParserLimitsMaxNodeSize>
+<ParserLimitsForbidExternalReferences>on</ParserLimitsForbidExternalReferences>
+<ParserLimitsExternalReferences>forbid</ParserLimitsExternalReferences>
+<ParserLimitsMaxPrefixes>1024</ParserLimitsMaxPrefixes>
+<ParserLimitsMaxNamespaces>1024</ParserLimitsMaxNamespaces>
+<ParserLimitsMaxLocalNames>60000</ParserLimitsMaxLocalNames>
+<DocCacheMaxDocs>5000</DocCacheMaxDocs>
+<DocCacheSize>0</DocCacheSize>
+<DocMaxWrites>32768</DocMaxWrites>
+<UserAgent class="HTTPUserAgent">default-https</UserAgent></XMLManager><Matching name="ALL" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<MatchRules>
+<Type>url</Type>
+<HttpTag/>
+<HttpValue/>
+<Url>*</Url>
+<ErrorCode/>
+<XPATHExpression/>
+<Method>default</Method>
+<CustomMethod/></MatchRules>
+<MatchWithPCRE>off</MatchWithPCRE>
+<CombineWithOr>off</CombineWithOr></Matching><StylePolicyAction name="cf-gateway_rule_0_gatewayscript_0" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>gatewayscript</Type>
+<Input>INPUT</Input>
+<TransformLanguage>none</TransformLanguage>
+<GatewayScriptLocation>local:///cf-gateway-url-rewrite.js</GatewayScriptLocation>
+<ActionDebug persisted="false">off</ActionDebug>
+<Output>PIPE</Output>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyAction name="cf-gateway_rule_0_results_0" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>results</Type>
+<Input>PIPE</Input>
+<TransformLanguage>none</TransformLanguage>
+<ActionDebug persisted="false">off</ActionDebug>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyRule name="cf-gateway_rule_0" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Direction>request-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">cf-gateway_rule_0_gatewayscript_0</Actions>
+<Actions class="StylePolicyAction">cf-gateway_rule_0_results_0</Actions></StylePolicyRule><StylePolicyAction name="cf-gateway_rule_1_results_1" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>results</Type>
+<Input>INPUT</Input>
+<TransformLanguage>none</TransformLanguage>
+<ActionDebug persisted="false">off</ActionDebug>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyRule name="cf-gateway_rule_1" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Direction>response-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">cf-gateway_rule_1_results_1</Actions></StylePolicyRule><StylePolicy name="cf-gateway" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<DefStylesheetForSoap>store:///filter-reject-all.xsl</DefStylesheetForSoap>
+<DefStylesheetForXsl>store:///identity.xsl</DefStylesheetForXsl>
+<DefXQueryForJSON>store:///reject-all-json.xq</DefXQueryForJSON>
+<PolicyMaps>
+<Match class="Matching">ALL</Match>
+<Rule class="StylePolicyRule">cf-gateway_rule_0</Rule></PolicyMaps>
+<PolicyMaps>
+<Match class="Matching">ALL</Match>
+<Rule class="StylePolicyRule">cf-gateway_rule_1</Rule></PolicyMaps></StylePolicy><PolicyAttachments name="cf-gateway" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<EnforcementMode>enforce</EnforcementMode>
+<PolicyReferences>on</PolicyReferences>
+<SLAEnforcementMode>allow-if-no-sla</SLAEnforcementMode></PolicyAttachments><MultiProtocolGateway name="cf-gateway" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Priority>normal</Priority>
+<FrontProtocol class="HTTPSSourceProtocolHandler">https-7443</FrontProtocol>
+<XMLManager class="XMLManager">default-https</XMLManager>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<DefaultParamNamespace>http://www.datapower.com/param/config</DefaultParamNamespace>
+<QueryParamNamespace>http://www.datapower.com/param/query</QueryParamNamespace>
+<PropagateURI>on</PropagateURI>
+<MonitorProcessingPolicy>terminate-at-first-throttle</MonitorProcessingPolicy>
+<RequestAttachments>strip</RequestAttachments>
+<ResponseAttachments>strip</ResponseAttachments>
+<RequestAttachmentsFlowControl>off</RequestAttachmentsFlowControl>
+<ResponseAttachmentsFlowControl>off</ResponseAttachmentsFlowControl>
+<RootPartNotFirstAction>process-in-order</RootPartNotFirstAction>
+<FrontAttachmentFormat>dynamic</FrontAttachmentFormat>
+<BackAttachmentFormat>dynamic</BackAttachmentFormat>
+<MIMEFrontHeaders>on</MIMEFrontHeaders>
+<MIMEBackHeaders>on</MIMEBackHeaders>
+<StreamOutputToBack>buffer-until-verification</StreamOutputToBack>
+<StreamOutputToFront>buffer-until-verification</StreamOutputToFront>
+<MaxMessageSize>0</MaxMessageSize>
+<GatewayParserLimits>off</GatewayParserLimits>
+<ParserLimitsElementDepth>512</ParserLimitsElementDepth>
+<ParserLimitsAttributeCount>128</ParserLimitsAttributeCount>
+<ParserLimitsMaxNodeSize>33554432</ParserLimitsMaxNodeSize>
+<ParserLimitsForbidExternalReferences>on</ParserLimitsForbidExternalReferences>
+<ParserLimitsExternalReferences>forbid</ParserLimitsExternalReferences>
+<ParserLimitsMaxPrefixes>1024</ParserLimitsMaxPrefixes>
+<ParserLimitsMaxNamespaces>1024</ParserLimitsMaxNamespaces>
+<ParserLimitsMaxLocalNames>60000</ParserLimitsMaxLocalNames>
+<ParserLimitsAttachmentByteCount>2000000000</ParserLimitsAttachmentByteCount>
+<ParserLimitsAttachmentPackageByteCount>0</ParserLimitsAttachmentPackageByteCount>
+<DebugMode persisted="false">off</DebugMode>
+<DebuggerType>internal</DebuggerType>
+<DebugHistory>25</DebugHistory>
+<FlowControl>off</FlowControl>
+<SOAPSchemaURL>store:///schemas/soap-envelope.xsd</SOAPSchemaURL>
+<FrontTimeout>120</FrontTimeout>
+<BackTimeout>120</BackTimeout>
+<FrontPersistentTimeout>180</FrontPersistentTimeout>
+<BackPersistentTimeout>180</BackPersistentTimeout>
+<IncludeResponseTypeEncoding>off</IncludeResponseTypeEncoding>
+<BackHTTPVersion>HTTP/1.1</BackHTTPVersion>
+<PersistentConnections>on</PersistentConnections>
+<LoopDetection>off</LoopDetection>
+<DoHostRewriting>on</DoHostRewriting>
+<DoChunkedUpload>off</DoChunkedUpload>
+<ProcessHTTPErrors>on</ProcessHTTPErrors>
+<HTTPClientIPLabel>X-Client-IP</HTTPClientIPLabel>
+<HTTPLogCorIDLabel>X-Global-Transaction-ID</HTTPLogCorIDLabel>
+<InOrderMode>
+<Request>off</Request>
+<Backend>off</Backend>
+<Response>off</Response></InOrderMode>
+<WSAMode>sync2sync</WSAMode>
+<WSARequireAAA>on</WSARequireAAA>
+<WSAStrip>on</WSAStrip>
+<WSADefaultReplyTo>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</WSADefaultReplyTo>
+<WSADefaultFaultTo>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</WSADefaultFaultTo>
+<WSAForce>off</WSAForce>
+<WSAGenStyle>sync</WSAGenStyle>
+<WSAHTTPAsyncResponseCode>204</WSAHTTPAsyncResponseCode>
+<WSATimeout>120</WSATimeout>
+<WSRMEnabled>off</WSRMEnabled>
+<WSRMSequenceExpiration>3600</WSRMSequenceExpiration>
+<WSRMDestinationAcceptCreateSequence>on</WSRMDestinationAcceptCreateSequence>
+<WSRMDestinationMaximumSequences>400</WSRMDestinationMaximumSequences>
+<WSRMDestinationInOrder>off</WSRMDestinationInOrder>
+<WSRMDestinationMaximumInOrderQueueLength>10</WSRMDestinationMaximumInOrderQueueLength>
+<WSRMDestinationAcceptOffers>off</WSRMDestinationAcceptOffers>
+<WSRMFrontForce>off</WSRMFrontForce>
+<WSRMBackForce>off</WSRMBackForce>
+<WSRMBackCreateSequence>off</WSRMBackCreateSequence>
+<WSRMFrontCreateSequence>off</WSRMFrontCreateSequence>
+<WSRMSourceMakeOffer>off</WSRMSourceMakeOffer>
+<WSRMUsesSequenceSSL>off</WSRMUsesSequenceSSL>
+<WSRMSourceMaximumSequences>400</WSRMSourceMaximumSequences>
+<WSRMSourceRetransmissionInterval>10</WSRMSourceRetransmissionInterval>
+<WSRMSourceExponentialBackoff>on</WSRMSourceExponentialBackoff>
+<WSRMSourceMaximumRetransmissions>4</WSRMSourceMaximumRetransmissions>
+<WSRMSourceMaximumQueueLength>30</WSRMSourceMaximumQueueLength>
+<WSRMSourceRequestAckCount>1</WSRMSourceRequestAckCount>
+<WSRMSourceInactivityClose>360</WSRMSourceInactivityClose>
+<ForcePolicyExec>on</ForcePolicyExec>
+<RewriteErrors>on</RewriteErrors>
+<DelayErrors>on</DelayErrors>
+<DelayErrorsDuration>1000</DelayErrorsDuration>
+<RequestType>preprocessed</RequestType>
+<ResponseType>unprocessed</ResponseType>
+<FollowRedirects>on</FollowRedirects>
+<RewriteLocationHeader>off</RewriteLocationHeader>
+<StylePolicy class="StylePolicy">cf-gateway</StylePolicy>
+<Type>dynamic-backend</Type>
+<AllowCompression>off</AllowCompression>
+<AllowCacheControlHeader>off</AllowCacheControlHeader>
+<PolicyAttachments class="PolicyAttachments">cf-gateway</PolicyAttachments>
+<WSMAgentMonitor>off</WSMAgentMonitor>
+<WSMAgentMonitorPCM>all-messages</WSMAgentMonitorPCM>
+<ProxyHTTPResponse>off</ProxyHTTPResponse>
+<TransactionTimeout>0</TransactionTimeout></MultiProtocolGateway><DomainAvailability name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>disabled</mAdminState>
+<MonitoredService>
+<WSGatewayName/>
+<MultiProtocolGatewayName class="MultiProtocolGateway">cf-gateway</MultiProtocolGatewayName></MonitoredService></DomainAvailability><DomainSettings name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<PasswordTreatment>none</PasswordTreatment></DomainSettings><HTTPUserAgent name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Default User Agent</UserSummary>
+<MaxRedirects>8</MaxRedirects>
+<Timeout>300</Timeout></HTTPUserAgent><LogLabel name="aaa" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">AAA Policy</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="all" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">All Categories</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="apiconnect" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">API Connect</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="audit" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Audit Trace</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="auth" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Authentication</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="cert-monitor" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Crypto Certificate Monitor</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="cli" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">CLI Trace</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="cloud-connector" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Cloud Connector Processing</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="cloud-gateway" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Cloud Gateway Processing</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="cluster-service" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Cluster Service</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="crypto" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Crypto Subsystem</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="dfdl" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">DFDL</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="evtlog" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Event Subsystem</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="extlatency" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Enhanced Transactional Latency</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="fibre-channel" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Fibre Channel</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="file" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">File Management</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="file-capture" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XML File Capture</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="file-poller" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">File Poller</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="ftp" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">FTP Message Exchange</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="gatewayscript" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">GatewayScript Processing</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="gatewayscript-user" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">GatewayScript User Processing</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="http" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">HTTP Proxy</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="http-convert" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">HTTP to XML Converter</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="ip-multicast" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">IP Multicast</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="ipmi" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Intelligent Platform Management Interface</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="iscsi" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">iSCSI</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="kerberos" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Kerberos Access</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="latency" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Transactional Latency</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="ldap" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">LDAP Server Query</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="llm" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Low Latency Messaging</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="ltpa" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">LTPA Token Access</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="memory-report" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Memory Report</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="mgmt" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Configuration Management</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="mime" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">MIME Message Processing</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="monitor" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Message Monitoring</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="mpgw" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Multi-Protocol Gateway</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="mq" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">WebSphere MQ</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="multistep" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Multistep Transformations</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="netegrity" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Netegrity SiteMinder</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="network" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Network Subsystem</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="network-file" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Network File Access</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="networkhsm-luna" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Network HSM - Luna</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="oauth" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">OAuth Processing</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="ocsp" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">OCSP Subsystem</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="odr" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">On Demand Router</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="odr-connector-group" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">On Demand Router Connector Group</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="odrlib" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">On Demand Router Library</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="peer-group" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Peer Group</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="quiesce" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Quiesce</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="quota-enforcement" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Quota Enforcement Server</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="rbm" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Role-based Management</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="rpcsec-gss" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">RPC Security - Generic Security Service for NFS</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="schema" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Schema Validation</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="secure-cloud-connector" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Secure Cloud Connector</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="secure-conversation" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">WS-SecureConversation Security Context Management</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="self-balancing" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Self-Balancing</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="sftp" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">SFTP Message Exchange</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="sgclient" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Secure Gateway Client</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="slm" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Service Level Monitoring</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="smtp" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">SMTP Message Exchange</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="sql" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">SQL Data Access</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="ssh" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">SSH Service</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="ssl" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">SSL Processing</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="system" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">System Events</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="tam" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Tivoli Access Manager</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="tfim" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Tivoli Federated Identity Manager</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="tibco-ems" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Tibco EMS</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="uddi" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">UDDI</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="uddisub" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">UDDI Subscription</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="user" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">User Management</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="useragent" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">User-Agent Subsystem</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="wasjms" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">WebSphere JMS</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="wcc" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">WebSphere Cell Configuration</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="web-token-service" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Web Token Service</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="webapp-firewall" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Web Application Firewall</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="ws-proxy" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Web Service Proxy</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="wsm-agent" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Web Service Management Agent</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="wsrr" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">WebSphere Service Registry and Repository</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="wtx" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">WTX</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="wxs-grid" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">WebSphere eXtreme Scale grid</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xacml" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XACML</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xc10-grid" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XC10-grid</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xformng" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XFormNG</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xmlfilter" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XML Message Filtering</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xmlfirewall" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XML-Firewall Service</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xmlparse" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">General XML Parsing</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xmlroute" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XML Message Routing</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xquery" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XQuery</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xslcoproc" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XSL-Coprocessor Service</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xslproxy" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XSL-Proxy Service</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xslt" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XSLT Compilation</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="xsltmsg" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">XSLT User Message</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogLabel name="zosnss" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">zOS-NSS</UserSummary>
+<Type read-only="true">pre-defined</Type></LogLabel><LogTarget name="default-log" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState read-only="true">enabled</mAdminState>
+<UserSummary read-only="true">Default Domain Log</UserSummary>
+<Type read-only="true">file</Type>
+<Priority read-only="true">normal</Priority>
+<SoapVersion read-only="true">soap11</SoapVersion>
+<Format read-only="true">text</Format>
+<TimestampFormat read-only="true">zulu</TimestampFormat>
+<FixedFormat read-only="true">off</FixedFormat>
+<Size read-only="true">500</Size>
+<LocalFile read-only="true">logtemp:///default-log</LocalFile>
+<ArchiveMode read-only="true">rotate</ArchiveMode>
+<Rotate read-only="true">3</Rotate>
+<UseANSIColor read-only="true">off</UseANSIColor>
+<SyslogFacility read-only="true">user</SyslogFacility>
+<RateLimit read-only="true">100</RateLimit>
+<ConnectTimeout read-only="true">60</ConnectTimeout>
+<IdleTimeout read-only="true">15</IdleTimeout>
+<ActiveTimeout read-only="true">0</ActiveTimeout>
+<FeedbackDetection read-only="true">off</FeedbackDetection>
+<IdenticalEventSuppression read-only="true">off</IdenticalEventSuppression>
+<IdenticalEventPeriod read-only="true">10</IdenticalEventPeriod>
+<SSLClientConfigType read-only="true">proxy</SSLClientConfigType>
+<RetryInterval read-only="true">1</RetryInterval>
+<RetryAttempts read-only="true">1</RetryAttempts>
+<LongRetryInterval read-only="true">20</LongRetryInterval>
+<LogPrecision read-only="true">second</LogPrecision>
+<LogEvents>
+<Class class="LogLabel">all</Class>
+<Priority>error</Priority></LogEvents>
+<LogEvents>
+<Class class="LogLabel">mgmt</Class>
+<Priority>notice</Priority></LogEvents></LogTarget><Matching name="__default-accept-service-providers__" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Match all messages.</UserSummary>
+<MatchRules>
+<Type>url</Type>
+<HttpTag/>
+<HttpValue/>
+<Url>*</Url>
+<ErrorCode/>
+<XPATHExpression/>
+<Method>default</Method>
+<CustomMethod/></MatchRules>
+<MatchWithPCRE>off</MatchWithPCRE>
+<CombineWithOr>off</CombineWithOr></Matching><NFSDynamicMounts name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>disabled</mAdminState>
+<Version>3</Version>
+<Transport>tcp</Transport>
+<MountType>hard</MountType>
+<ReadOnly>off</ReadOnly>
+<ReadSize>4096</ReadSize>
+<WriteSize>4096</WriteSize>
+<Timeout>7</Timeout>
+<Retransmissions>3</Retransmissions>
+<IdleUnmountSeconds>900</IdleUnmountSeconds>
+<MountTimeoutSeconds>30</MountTimeoutSeconds></NFSDynamicMounts><ProcessingMetadata name="ftp-usercert-metadata" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>dn</MetaName>
+<DataSource>var://context/INPUT/ftp/tls/client-subject-dn</DataSource></MetaItem>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>issuer</MetaName>
+<DataSource>var://context/INPUT/ftp/tls/client-issuer-dn</DataSource></MetaItem>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>serial</MetaName>
+<DataSource>var://context/INPUT/ftp/tls/client-serial-number</DataSource></MetaItem></ProcessingMetadata><ProcessingMetadata name="ftp-username-metadata" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>dn</MetaName>
+<DataSource>var://context/INPUT/ftp/tls/client-subject-dn</DataSource></MetaItem>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>issuer</MetaName>
+<DataSource>var://context/INPUT/ftp/tls/client-issuer-dn</DataSource></MetaItem>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>password</MetaName>
+<DataSource>var://context/INPUT/ftp/password</DataSource></MetaItem>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>serial</MetaName>
+<DataSource>var://context/INPUT/ftp/tls/client-serial-number</DataSource></MetaItem>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>username</MetaName>
+<DataSource>var://context/INPUT/ftp/username</DataSource></MetaItem></ProcessingMetadata><ProcessingMetadata name="oauth-scope-metadata" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>scope</MetaName>
+<DataSource>var://context/INPUT/oauth/verified-scope</DataSource></MetaItem></ProcessingMetadata><ProcessingMetadata name="ssh-password-metadata" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>password</MetaName>
+<DataSource>var://context/INPUT/ssh/password</DataSource></MetaItem>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>publickey</MetaName>
+<DataSource>var://context/INPUT/ssh/publickey</DataSource></MetaItem>
+<MetaItem>
+<MetaCategory>variable</MetaCategory>
+<MetaName>username</MetaName>
+<DataSource>var://context/INPUT/ssh/username</DataSource></MetaItem></ProcessingMetadata><SLMAction name="notify" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>log-only</Type>
+<LogLevel>warn</LogLevel></SLMAction><SLMAction name="shape" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>shape</Type>
+<LogLevel>debug</LogLevel></SLMAction><SLMAction name="throttle" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>reject</Type>
+<LogLevel>debug</LogLevel></SLMAction><SSHDomainClientProfile name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Ciphers>CHACHA20-POLY1305_AT_OPENSSH.COM</Ciphers>
+<Ciphers>AES128-CTR</Ciphers>
+<Ciphers>AES192-CTR</Ciphers>
+<Ciphers>AES256-CTR</Ciphers>
+<Ciphers>AES128-GCM_AT_OPENSSH.COM</Ciphers>
+<Ciphers>AES256-GCM_AT_OPENSSH.COM</Ciphers>
+<Ciphers>ARCFOUR256</Ciphers>
+<Ciphers>ARCFOUR128</Ciphers>
+<Ciphers>AES128-CBC</Ciphers>
+<Ciphers>3DES-CBC</Ciphers>
+<Ciphers>BLOWFISH-CBC</Ciphers>
+<Ciphers>CAST128-CBC</Ciphers>
+<Ciphers>AES192-CBC</Ciphers>
+<Ciphers>AES256-CBC</Ciphers>
+<Ciphers>ARCFOUR</Ciphers>
+<Ciphers>RIJNDAEL-CBC_AT_LYSATOR.LIU.SE</Ciphers></SSHDomainClientProfile><SSHServerProfile name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Ciphers>CHACHA20-POLY1305_AT_OPENSSH.COM</Ciphers>
+<Ciphers>AES128-CTR</Ciphers>
+<Ciphers>AES192-CTR</Ciphers>
+<Ciphers>AES256-CTR</Ciphers>
+<Ciphers>AES128-GCM_AT_OPENSSH.COM</Ciphers>
+<Ciphers>AES256-GCM_AT_OPENSSH.COM</Ciphers>
+<Ciphers>ARCFOUR256</Ciphers>
+<Ciphers>ARCFOUR128</Ciphers>
+<Ciphers>AES128-CBC</Ciphers>
+<Ciphers>3DES-CBC</Ciphers>
+<Ciphers>BLOWFISH-CBC</Ciphers>
+<Ciphers>CAST128-CBC</Ciphers>
+<Ciphers>AES192-CBC</Ciphers>
+<Ciphers>AES256-CBC</Ciphers>
+<Ciphers>ARCFOUR</Ciphers>
+<Ciphers>RIJNDAEL-CBC_AT_LYSATOR.LIU.SE</Ciphers>
+<LegacyKex>no</LegacyKex></SSHServerProfile><Statistics name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>disabled</mAdminState>
+<LoadInterval read-only="true">1000</LoadInterval></Statistics><StylePolicy name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Default Processing Policy</UserSummary>
+<DefStylesheetForSoap>store:///filter-reject-all.xsl</DefStylesheetForSoap>
+<DefStylesheetForXsl>store:///identity.xsl</DefStylesheetForXsl>
+<DefXQueryForJSON>store:///reject-all-json.xq</DefXQueryForJSON></StylePolicy><StylePolicyAction name="__default-accept-service-providers-filter-action__" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>filter</Type>
+<Input>NULL</Input>
+<Transform>store:///filter-accept-service-providers.xsl</Transform>
+<TransformLanguage>none</TransformLanguage>
+<ActionDebug persisted="false">off</ActionDebug>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyAction name="__default-accept-service-providers-results-action__" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>results</Type>
+<Input>INPUT</Input>
+<TransformLanguage>none</TransformLanguage>
+<ActionDebug persisted="false">off</ActionDebug>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyRule name="__default-accept-service-providers-request__" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Accept messages intended for known services, reject everything else.</UserSummary>
+<Direction>request-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">__default-accept-service-providers-filter-action__</Actions>
+<Actions class="StylePolicyAction">__default-accept-service-providers-results-action__</Actions></StylePolicyRule><StylePolicyRule name="__default-accept-service-providers-response__" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Accept responses received from known services.</UserSummary>
+<Direction>response-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">__default-accept-service-providers-results-action__</Actions></StylePolicyRule><StylePolicy name="default-accept-service-providers" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Default Processing Policy which accepts only messages that match known WSRR services in a Multi-Protocol Gateway.</UserSummary>
+<DefStylesheetForSoap>store:///filter-reject-all.xsl</DefStylesheetForSoap>
+<DefStylesheetForXsl>store:///identity.xsl</DefStylesheetForXsl>
+<DefXQueryForJSON>store:///reject-all-json.xq</DefXQueryForJSON>
+<PolicyMaps>
+<Match class="Matching">__default-accept-service-providers__</Match>
+<Rule class="StylePolicyRule">__default-accept-service-providers-request__</Rule></PolicyMaps>
+<PolicyMaps>
+<Match class="Matching">__default-accept-service-providers__</Match>
+<Rule class="StylePolicyRule">__default-accept-service-providers-response__</Rule></PolicyMaps></StylePolicy><StylePolicyAction name="__dp-policy-call-action__" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Call the next policy.</UserSummary>
+<Type>call</Type>
+<Input>INPUT</Input>
+<TransformLanguage>none</TransformLanguage>
+<ActionDebug persisted="false">off</ActionDebug>
+<Output>INPUT</Output>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<Rule>var://context/policy/fw/call-rule</Rule>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyAction name="__dp-policy-init-xform-action__" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Set up context vars and annotate map XML.</UserSummary>
+<Type>xform</Type>
+<Input>NULL</Input>
+<Transform>store://dp/policy-enforce-init.xsl</Transform>
+<TransformLanguage>none</TransformLanguage>
+<ActionDebug persisted="false">off</ActionDebug>
+<Output>NULL</Output>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyAction name="__dp-policy-results-action__" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Results action for our policy enforcement rules.</UserSummary>
+<Type>results</Type>
+<Input>INPUT</Input>
+<TransformLanguage>none</TransformLanguage>
+<ActionDebug persisted="false">off</ActionDebug>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyAction name="__dp-policy-traverse-xform-action__" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Identify next policy by traversing the annotated map.</UserSummary>
+<Type>xform</Type>
+<Input>NULL</Input>
+<Transform>store://dp/policy-enforce-traverse.xsl</Transform>
+<TransformLanguage>none</TransformLanguage>
+<ActionDebug persisted="false">off</ActionDebug>
+<Output>NULL</Output>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyAction name="cf-gateway_rule_0_route-action_0" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>route-action</Type>
+<Input>INPUT</Input>
+<Transform>local:///cf-gateway-url-rewrite.xsl</Transform>
+<TransformLanguage>none</TransformLanguage>
+<ActionDebug persisted="false">off</ActionDebug>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyRule name="__dp-policy-begin__" intrinsic="true" read-only="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Initiate policy enforcement by annotating policy and determining first policy to enforce.</UserSummary>
+<Direction>rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>off</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">__dp-policy-init-xform-action__</Actions>
+<Actions class="StylePolicyAction">__dp-policy-traverse-xform-action__</Actions>
+<Actions class="StylePolicyAction">__dp-policy-call-action__</Actions>
+<Actions class="StylePolicyAction">__dp-policy-results-action__</Actions></StylePolicyRule><WebServicesAgent name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>disabled</mAdminState>
+<MaxRecords>3000</MaxRecords>
+<MaxMemoryKB>64000</MaxMemoryKB>
+<CaptureMode>faults</CaptureMode>
+<BufferMode>discard</BufferMode>
+<MediationMetrics>off</MediationMetrics>
+<MaxPayloadSizeKB>0</MaxPayloadSizeKB>
+<PushInterval>100</PushInterval>
+<PushPriority>normal</PushPriority></WebServicesAgent><WSStylePolicy name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Default Processing Policy</UserSummary>
+<DefStylesheetForSoap>store:///filter-reject-all.xsl</DefStylesheetForSoap>
+<DefStylesheetForXsl>store:///identity.xsl</DefStylesheetForXsl></WSStylePolicy><XMLManager name="default" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Default XML-Manager</UserSummary>
+<CacheSize>256</CacheSize>
+<SHA1Caching>on</SHA1Caching>
+<StaticDocumentCalls>on</StaticDocumentCalls>
+<SearchResults>on</SearchResults>
+<SupportTxWarn>off</SupportTxWarn>
+<Memoization>on</Memoization>
+<ParserLimitsBytesScanned>4194304</ParserLimitsBytesScanned>
+<ParserLimitsElementDepth>512</ParserLimitsElementDepth>
+<ParserLimitsAttributeCount>128</ParserLimitsAttributeCount>
+<ParserLimitsMaxNodeSize>33554432</ParserLimitsMaxNodeSize>
+<ParserLimitsForbidExternalReferences>on</ParserLimitsForbidExternalReferences>
+<ParserLimitsExternalReferences>forbid</ParserLimitsExternalReferences>
+<ParserLimitsMaxPrefixes>1024</ParserLimitsMaxPrefixes>
+<ParserLimitsMaxNamespaces>1024</ParserLimitsMaxNamespaces>
+<ParserLimitsMaxLocalNames>60000</ParserLimitsMaxLocalNames>
+<DocCacheMaxDocs>5000</DocCacheMaxDocs>
+<DocCacheSize>0</DocCacheSize>
+<DocMaxWrites>32768</DocMaxWrites>
+<UserAgent class="HTTPUserAgent">default</UserAgent></XMLManager><XMLManager name="default-attempt-stream" intrinsic="true" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>Default Streaming XML-Manager</UserSummary>
+<CompileOptionsPolicy class="CompileOptionsPolicy">default-attempt-stream</CompileOptionsPolicy>
+<CacheSize>256</CacheSize>
+<SHA1Caching>on</SHA1Caching>
+<StaticDocumentCalls>on</StaticDocumentCalls>
+<SearchResults>on</SearchResults>
+<SupportTxWarn>off</SupportTxWarn>
+<Memoization>on</Memoization>
+<ParserLimitsBytesScanned>268435456</ParserLimitsBytesScanned>
+<ParserLimitsElementDepth>512</ParserLimitsElementDepth>
+<ParserLimitsAttributeCount>128</ParserLimitsAttributeCount>
+<ParserLimitsMaxNodeSize>268435456</ParserLimitsMaxNodeSize>
+<ParserLimitsForbidExternalReferences>on</ParserLimitsForbidExternalReferences>
+<ParserLimitsExternalReferences>forbid</ParserLimitsExternalReferences>
+<ParserLimitsMaxPrefixes>1024</ParserLimitsMaxPrefixes>
+<ParserLimitsMaxNamespaces>1024</ParserLimitsMaxNamespaces>
+<ParserLimitsMaxLocalNames>60000</ParserLimitsMaxLocalNames>
+<DocCacheMaxDocs>5000</DocCacheMaxDocs>
+<DocCacheSize>0</DocCacheSize>
+<DocMaxWrites>32768</DocMaxWrites>
+<UserAgent class="HTTPUserAgent">default</UserAgent></XMLManager><XMLManager name="default-wsrr" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<UserSummary>WSRR XML-Manager</UserSummary>
+<CacheSize>256</CacheSize>
+<SHA1Caching>on</SHA1Caching>
+<StaticDocumentCalls>on</StaticDocumentCalls>
+<SearchResults>on</SearchResults>
+<SupportTxWarn>off</SupportTxWarn>
+<Memoization>on</Memoization>
+<ParserLimitsBytesScanned>4194304</ParserLimitsBytesScanned>
+<ParserLimitsElementDepth>512</ParserLimitsElementDepth>
+<ParserLimitsAttributeCount>128</ParserLimitsAttributeCount>
+<ParserLimitsMaxNodeSize>33554432</ParserLimitsMaxNodeSize>
+<ParserLimitsForbidExternalReferences>on</ParserLimitsForbidExternalReferences>
+<ParserLimitsExternalReferences>forbid</ParserLimitsExternalReferences>
+<ParserLimitsMaxPrefixes>1024</ParserLimitsMaxPrefixes>
+<ParserLimitsMaxNamespaces>1024</ParserLimitsMaxNamespaces>
+<ParserLimitsMaxLocalNames>60000</ParserLimitsMaxLocalNames>
+<DocCacheMaxDocs>5000</DocCacheMaxDocs>
+<DocCacheSize>0</DocCacheSize>
+<DocMaxWrites>32768</DocMaxWrites>
+<UserAgent class="HTTPUserAgent">default</UserAgent></XMLManager></configuration>
+<files>
+</files>
+</datapower-configuration>
